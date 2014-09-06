@@ -5,27 +5,39 @@
 " Last Change: Sep 2nd 2014
 
 if version < 600
-  source <sfile>:p:h/conf.vim
-else
-  runtime! syntax/conf.vim
-  unlet b:current_syntax
-endif
-
-if version < 600
   syntax clear
 elseif exists("b:current_syntax")
   finish
 endif
 
-syntax keyword command source source-file
-syntax keyword command bind bind-key unbind unbind-key
-syntax keyword command set-option set
-syntax keyword command set-window-option setw
-syntax keyword command display
 
-syntax keyword flag -g -r -s -t
+" Keywords.
+syntax keyword tmuxCommand source source-file
+syntax keyword tmuxCommand bind bind-key unbind unbind-key
+syntax keyword tmuxCommand set-option set
+syntax keyword tmuxCommand set-window-option setw
+syntax keyword tmuxCommand if if-shell
+syntax keyword tmuxCommand display
+syntax keyword tmuxFlag -g -r -s -t
 
-highlight link command Keyword
-highlight link flag Character
+" Matches.
+syntax match tmuxNumber '\<\d\+\>'
+syntax match tmuxComment '#.*'
+syntax match tmuxEnvVariable '\$[A-Z_]\+' contained
 
+" Regions.
+syntax region tmuxString start=+"+ end=+"+ skip='\\"' contains=tmuxEnvVariable
+syntax region tmuxString start=+'+ end=+'+ skip="\\'" contains=tmuxEnvVariable
+
+
+" Highlighting.
+highlight def link tmuxCommand Keyword
+highlight def link tmuxFlag Character
+highlight def link tmuxNumber Number
+highlight def link tmuxComment Comment
+highlight def link tmuxString String
+highlight def link tmuxEnvVariable Title
+
+
+" Set the b:current_syntax variable to prevent re-defining the syntax.
 let b:current_syntax = 'tmux-conf'
