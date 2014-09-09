@@ -2,7 +2,7 @@
 " Language: tmux-conf
 " Maintainer: Andrea Leopardi <an.leopardi@gmail.com>
 " Version: 0.1
-" Last Change: Sep 2nd 2014
+" Last Change: Sep 2014
 
 " Exit early if there's already a b:current_syntax variable.
 if version < 600
@@ -18,7 +18,8 @@ syntax keyword tmuxCommand bind bind-key unbind unbind-key
 syntax keyword tmuxCommand set-option set
 syntax keyword tmuxCommand set-window-option setw
 syntax keyword tmuxCommand if if-shell
-syntax keyword tmuxCommand display
+syntax keyword tmuxCommand display run
+syntax keyword tmuxCommand new-window new-session
 syntax keyword tmuxFlag -g -r -s -t
 
 " Matches.
