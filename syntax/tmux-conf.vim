@@ -18,8 +18,8 @@ syntax keyword tmuxCommand bind bind-key unbind unbind-key
 syntax keyword tmuxCommand set-option set
 syntax keyword tmuxCommand set-window-option setw
 syntax keyword tmuxCommand if if-shell
-syntax keyword tmuxCommand display run
-syntax keyword tmuxCommand new-window new-session
+syntax keyword tmuxCommand display run run-shell
+syntax keyword tmuxCommand new new-window new-session
 syntax keyword tmuxFlag -g -r -s -t
 
 " Matches.
