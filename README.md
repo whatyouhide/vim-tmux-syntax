@@ -7,25 +7,40 @@ Syntax highlighting for [tmux][tmux] configuration files.
 
 ## Installation
 
-Copy the plugin directory anywhere you want and add that to the `runtimepath`:
+With the most common plugin managers (my personal preference is
+[vim-plug][vim-plug]):
 
-``` vim
-set runtimepath+=/path/to/vim-tmux-syntax
+``` viml
+" vim-plug
+Plug 'whatyouhide/vim-tmux-syntax'
+" NeoBundle
+NeoBundle 'whatyouhide/vim-tmux-syntax'
+" Vundle
+Plugin 'whatyouhide/vim-tmux-syntax'
 ```
 
-Or just use [Vundle][vundle]:
+If you use pathogen, clone the repository:
 
-``` vim
-Plugin 'whatyouhide/vim-tmux-syntax'
+    git clone https://github.com/whatyouhide/vim-tmux-syntax ~/.vim/bundle
+
+If you don't use a plugin manager, add the path to the cloned repository to the
+`runtimepath`:
+
+``` viml
+set runtimepath+=/path/to/vim-tmux-syntax
 ```
 
 ## License
 
-[WTFPL][wtfpl].
+&copy; 2014 Andrea Leopardi
+
+[![][wtfpl-logo]][wtfpl]
 
 
+[vim-plug]: https://github.com/junegunn/vim-plug
 [tmux]: http://tmux.sourceforge.net/
 [vundle]: https://github.com/gmarik/Vundle.vim
-[wtfpl]: http://www.wtfpl.net/txt/copying/
+[wtfpl]: http://www.wtfpl.net/
+[wtfpl-logo]: http://www.wtfpl.net/wp-content/uploads/2012/12/logo-220x1601.png
 [base16-colorscheme]: https://github.com/chriskempson/base16
 [screenshot]: http://i.imgur.com/IywCH1R.png "vim-tmux-syntax in action"
